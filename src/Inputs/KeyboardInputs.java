@@ -11,7 +11,15 @@ public class KeyboardInputs implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        System.out.println("why isn't this working wth");
+        switch (e.getKeyCode())
+        {
+            case KeyEvent.VK_A:
+                System.out.println("aha an a");
+                break;
+            case KeyEvent.VK_B:
+                System.out.println("oh a B how Bold of you");
+                break;
+        }
     }
 
     @Override
