@@ -1,9 +1,17 @@
 package Inputs;
 
+import game.GamePanel;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class KeyboardInputs implements KeyListener {
+    private GamePanel gamePanel;
+
+    public KeyboardInputs(GamePanel gamePanel) {
+        this.gamePanel = gamePanel;
+    }
+
     @Override
     public void keyTyped(KeyEvent e) {
 
@@ -14,10 +22,16 @@ public class KeyboardInputs implements KeyListener {
         switch (e.getKeyCode())
         {
             case KeyEvent.VK_A:
-                System.out.println("aha an a");
+                gamePanel.changexDelta(-5);
                 break;
-            case KeyEvent.VK_B:
-                System.out.println("oh a B how Bold of you");
+            case KeyEvent.VK_W:
+                gamePanel.changeyDelta(5);
+                break;
+            case KeyEvent.VK_D:
+                gamePanel.changexDelta(5);
+                break;
+            case KeyEvent.VK_S:
+                gamePanel.changeyDelta(5);
                 break;
         }
     }
