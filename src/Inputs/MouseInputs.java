@@ -14,7 +14,7 @@ public class MouseInputs implements MouseListener, MouseMotionListener {
     GamePanel gamePanel ;
     @Override
     public void mouseClicked(MouseEvent e) {
-        System.out.println("Hey you, you're finally awake");
+        
     }
 
     @Override
@@ -39,7 +39,7 @@ public class MouseInputs implements MouseListener, MouseMotionListener {
 
     @Override
     public void mouseDragged(MouseEvent e) {
-        System.out.println("Mouse dragging");
+
     }
 
     @Override
