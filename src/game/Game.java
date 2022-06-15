@@ -1,6 +1,9 @@
 package game;
 
+import entities.Player;
+
 import javax.swing.*;
+import java.awt.*;
 
 public class Game implements Runnable
 {
@@ -9,18 +12,34 @@ public class Game implements Runnable
     private final int FPS_CAP=120;
     private Thread gameThread;
     private final int UPS=200;
+    private Player player;
 
     public Game()
     {
-        panel=new GamePanel();
+        initClasses();
+        panel=new GamePanel(this);
         gameWindow=new GameWindow(panel);
         panel.requestFocus();
         gameThread=new Thread(this);
         gameThread.start();
     }
+
+    private void initClasses() {
+        player =new Player(200,200);
+    }
+
     public void update()
     {
-        panel.updateGame();
+        player.update();
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void render(Graphics g)
+    {
+        player.render(g);
     }
 
     @Override
@@ -66,5 +85,9 @@ public class Game implements Runnable
             }
         }
 
+    }
+
+    public void FocusLost() {
+        player.resetBooleans();
     }
 }
